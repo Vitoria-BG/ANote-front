@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANote - Página Inicial</title>
+  <link rel="stylesheet" href="telaPrincipal.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <div class="user-info">
+        <span id="username">Olá, Usuário!</span>
+      </div>
+
+      <!-- Aba de busca -->
+      <input type="text" placeholder="Buscar" class="search" />
+
+      <!-- Lista de atividades lateral -->
+      <div class="menu">
+
+        <!-- Anotações -->
+        <div class="section">
+          <span class="title">> Anotações</span>
+          <!-- Menu abre e fecha -->
+          <div class="submenu hidden" id="notes-list">
+            <button class="action">Criar anotação</button>
+            <!-- Lista das anotações -->
+            <ul>
+              <!-- ANOTAÇÕES DEVEM APARECER AQUI -->
+            </ul>
+            <span class="vermais">Ver mais...</span>
+          </div>
+        </div>
+
+        <!-- Cadernos -->
+        <div class="section">
+          <span class="title">> Cadernos</span>
+          <!-- Menu abre e fecha -->
+          <div class="submenu hidden" id="notebooks-list">
+            <button class="action">Criar caderno</button>
+            <!-- Lista dos cadernos -->
+            <ul>
+              <!-- CADERNOS DEVEM APARECER AQUI -->
+            </ul>
+            <span class="vermais">Ver mais...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sair da conta -->
+      <footer>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </footer>
+    </aside>
+
+     <!-- Sarte principal -->
+    <main class="main-content">
+      <h1 class="logo">ANote<span class="plus">+</span></h1>
+    </main>
+    
+  </div>
+</body>
+</html>
