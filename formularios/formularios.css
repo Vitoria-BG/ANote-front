@@ -90,22 +90,22 @@ button {
 
 .criar {
   margin-top: 10px;
-  background-color:  #e85c00;
+  background-color:  #fc8c0c;
   color: white;
 }
 
 .criar:hover {
-  background-color: #ca5202;
+  background-color: #074c84;
 }
 
 .login {
   margin-top: 10px;
-  background-color: #fdaf07;
+  background-color: #074c84;
   color: white;
 }
 
 .login:hover {
-  background-color: #e49e06;
+  background-color: #fc8c0c;
 }
 
 .alternativa {
@@ -115,7 +115,7 @@ button {
 }
 
 .alternativa a {
-  color: #0482bd;
+  color: #2e9fe0;
   text-decoration: none;
   font-weight: bold;
 }

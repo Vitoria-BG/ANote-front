@@ -26,12 +26,14 @@ body {
 }
 
 .user-info {
+  margin-top: 8px;
   margin-bottom: 20px;
 }
 
 .user-info span {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
+  margin-left: 6px;
   color: #444;
 }
 
@@ -46,11 +48,12 @@ body {
 
 .menu .section {
   margin-bottom: 20px;
+  margin-left: 6px;
 }
 
 .title {
   font-weight: bold;
-  color: #e85c00;
+  color: #ee840c;
   cursor: pointer;
   display: block;
   margin-bottom: 5px;
@@ -118,11 +121,12 @@ footer {
 }
 
 .logo {
+  text-align: center;
   font-size: 36px;
   font-weight: bold;
   color: #333;
 }
 
 .plus {
-  color: #ffb347;
+  color: #467dff;
 }
