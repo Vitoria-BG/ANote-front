@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="telaPrincipal.css" />
 </head>
 <body>
+
   <div class="container">
 
     <!-- Barra lateral -->
@@ -26,12 +27,17 @@
           <span class="title">> Anotações</span>
           <!-- Menu abre e fecha -->
           <div class="submenu hidden" id="notes-list">
-            <button class="action">Criar anotação</button>
+            <button class="action">+ Criar anotação</button>
             <!-- Lista das anotações -->
-            <ul>
-              <!-- ANOTAÇÕES DEVEM APARECER AQUI -->
+            <ul class="incompleto">
+              <!-- ANOTAÇÕES INICIAIS DEVEM APARECER AQUI -->
+              <span class="completo">
+                <ul> 
+                  <!-- RESTO DAS ANOTAÇÕES DEVEM APARECER AQUI -->
+                </ul>
+              </span>
             </ul>
-            <span class="vermais">Ver mais...</span>
+            <button class="vermais">Ver mais...</button>
           </div>
         </div>
 
@@ -40,12 +46,17 @@
           <span class="title">> Cadernos</span>
           <!-- Menu abre e fecha -->
           <div class="submenu hidden" id="notebooks-list">
-            <button class="action">Criar caderno</button>
+            <button class="action">+ Criar caderno</button>
             <!-- Lista dos cadernos -->
-            <ul>
-              <!-- CADERNOS DEVEM APARECER AQUI -->
+            <ul class="incompleto">
+              <!-- CADERNOS INICIAIS DEVEM APARECER AQUI -->
+              <span class="completo">
+                <ul> 
+                  <!-- RESTO DOS CADERNOS DEVE APARECER AQUI -->
+                </ul>
+              </span>
             </ul>
-            <span class="vermais">Ver mais...</span>
+            <button class="vermais">Ver mais...</button>
           </div>
         </div>
         
@@ -57,11 +68,28 @@
       </footer>
     </aside>
 
-     <!-- Sarte principal -->
+    <!-- Parte principal -->
     <main class="main-content">
       <h1 class="logo">ANote<span class="plus">+</span></h1>
     </main>
+
+
+    <div class="buttons">
+      <!-- Botão Menu -->
+      <button id="menu-toggle"> ☰ </button>
+
+      <!-- Menu abre e fecha -->
+      <div id="menutoggle" >
+          <ul>
+            <li><a href="#">Editar</a></li>
+            <li><a href="#">Excluir</a></li>
+          </ul>
+      </div>
+    </div>
+
     
+
+
   </div>
 </body>
 </html>
