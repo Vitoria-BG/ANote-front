@@ -142,26 +142,16 @@ footer {
   background-color: #c0392b;
 }
 
-/* LOGO NO CENTRO */
+/*
 .main-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
 }
+*/
 
-/* design e posição da logo */
-.logo {
-  text-align: center;
-  font-size: 36px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* design e posição da logo */
-.plus {
-  color: #467dff;
-}
+.main-content h1 {
+    padding: 20px;
+    margin: 12px 10px 10px 25px;
+} 
 
 /* MENU LATERAL DIREITA */
 button {
@@ -173,8 +163,10 @@ button {
 }
 
 /* ícone do menu */
-.menu-toggle {
-  align-self: baseline;
+#menu-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
   font-size: 30px;
   margin-top: 16px;
   margin-left: 60px;
@@ -183,82 +175,24 @@ button {
 }
 
 /* lista toggle */
-.menutoggle ul {
+#menutoggle ul {
   display: none;
   list-style: none;
   text-align: left;
   right: 44px;
+  top: 76px;
   position: absolute;
 }
 
 /* elementos da lista toggle */
-.menutoggle ul li {
+#menutoggle ul li {
   border: 1px solid #979797;
   padding: 10px 40px 10px 8px;
   margin: 0;
-
 }
 
 /* configurações de design do link na lista toggle */
-.menutoggle a {
+#menutoggle a {
   text-decoration: none; 
   color: black; 
 }
-
-/* POP-UP CRIAR CADERNO */
-.form-container { 
-  display: none;
-  position: absolute;
-  top: 30%;
-  left: 38%;
-  padding: 20px;
-}
-
-/* configurações de design do pop-up */
-.form-box {
-  background-color: #ffffff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
-  width: 700px;
-}
-
-/* configurações de design do pop-up */
-.nomeCaderno {
-  outline: none;
-  font-size: x-large;
-  font-weight: bold;
-  padding: 8px;
-  border-radius: 20px;
-  border: 1px solid #ffffff;
-  margin-bottom: 20px;
-  width: 100%;
-  color: #444;
-}
-
-/* configurações de design dos botões */
-.buttons2 {
-  display: inline-block;
-  margin-top: 20px;
-}
-
-/* configurações de design do botão cancelar */
-.criar {
-  margin: 8px;
-  margin-left: 410px;
-  background-color:  #467dff;
-  color: white;
-}
-
-/* configurações de design do botão criar */
-.cancelar {
-  margin: 8px;
-  background-color:  #467dff;
-  color: white;
-}
-
-/* configurações de design dos botões */
-.criar:hover, .cancelar:hover {
-  background-color: #2c62e0;
-}
-

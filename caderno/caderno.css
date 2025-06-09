@@ -142,26 +142,16 @@ footer {
   background-color: #c0392b;
 }
 
-/* LOGO NO CENTRO */
+/*
 .main-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
 }
+*/
 
-/* design e posição da logo */
-.logo {
-  text-align: center;
-  font-size: 36px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* design e posição da logo */
-.plus {
-  color: #467dff;
-}
+.main-content h1 {
+    padding: 20px;
+    margin: 10px 10px 10px 25px;
+} 
 
 /* MENU LATERAL DIREITA */
 button {
@@ -174,7 +164,9 @@ button {
 
 /* ícone do menu */
 .menu-toggle {
-  align-self: baseline;
+  position: absolute;
+  right: 0;
+  top: 0;
   font-size: 30px;
   margin-top: 16px;
   margin-left: 60px;
@@ -188,6 +180,7 @@ button {
   list-style: none;
   text-align: left;
   right: 44px;
+  top: 76px;
   position: absolute;
 }
 
@@ -196,7 +189,6 @@ button {
   border: 1px solid #979797;
   padding: 10px 40px 10px 8px;
   margin: 0;
-
 }
 
 /* configurações de design do link na lista toggle */

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANote - Página Inicial</title>
-  <link rel="stylesheet" href="telaPrincipal.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANote - Caderno</title>
+    <link rel="stylesheet" href="anotacao.css" />
 </head>
 <body>
 
-  <div class="container">
+    <div class="container">
 
     <!-- Barra lateral -->
     <aside class="sidebar">
@@ -16,11 +16,9 @@
         <span id="username">Olá, Usuário!</span>
       </div>
 
-      <form>
-        <!-- Aba de busca -->
-        <input type="search" placeholder="Buscar" class="search" />
-      </form>
-      
+      <!-- Aba de busca -->
+      <input type="text" placeholder="Buscar" class="search" />
+
       <!-- Lista de atividades lateral -->
       <div class="menu">
 
@@ -28,7 +26,7 @@
         <div class="section">
           <span class="title">> Anotações</span>
           <!-- Menu abre e fecha -->
-          <div class="submenu hidden">
+          <div class="submenu hidden" id="notes-list">
             <button class="action">+ Criar anotação</button>
             <!-- Lista das anotações -->
             <ul class="incompleto">
@@ -47,7 +45,7 @@
         <div class="section">
           <span class="title">> Cadernos</span>
           <!-- Menu abre e fecha -->
-          <div class="submenu hidden">
+          <div class="submenu hidden" id="notebooks-list">
             <button class="action">+ Criar caderno</button>
             <!-- Lista dos cadernos -->
             <ul class="incompleto">
@@ -72,16 +70,16 @@
 
     <!-- Parte principal -->
     <main class="main-content">
-      <h1 class="logo">ANote<span class="plus">+</span></h1>
+        <h1>Nome da anotação</h1>
     </main>
 
 
-    <div class="buttons1">
+    <div class="buttons">
       <!-- Botão Menu -->
-      <button class="menu-toggle"> ☰ </button>
+      <button id="menu-toggle"> ☰ </button>
 
       <!-- Menu abre e fecha -->
-      <div class="menutoggle" >
+      <div id="menutoggle" >
           <ul>
             <li><a href="#">Editar</a></li>
             <li><a href="#">Excluir</a></li>
@@ -89,24 +87,7 @@
       </div>
     </div>
 
-    <!-- Pop-up criar caderno -->
-    <div class="form-container">
-      <section class="form-box">
 
-        <input type="text" class="nomeCaderno" name="nomeCaderno" placeholder="Nome do caderno" required />
-            
-          <div class="buttons2">
-              <button type="submit" class="criar">Criar</button>
-          </div>
-
-          <div class="buttons2">
-              <button type="submit" class="cancelar">Cancelar</button>
-          </div>
-
-      </section>
-    </div>
-
-    
   </div>
 </body>
 </html>
