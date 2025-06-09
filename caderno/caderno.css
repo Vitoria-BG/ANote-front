@@ -228,6 +228,18 @@ button {
   color: #444;
 }
 
+.nomeAnotacao {
+  outline: none;
+  font-size: x-large;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  margin-bottom: 20px;
+  width: 100%;
+  color: #444;
+}
+
 /* configurações de design dos botões */
 .buttons2 {
   display: inline-block;
@@ -251,6 +263,28 @@ button {
 
 /* configurações de design dos botões */
 .criar:hover, .cancelar:hover {
+  background-color: #2c62e0;
+}
+
+/* BOTÃO FLUTUANTE */
+.floating-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #467dff;
+  color: white;
+  font-size: 36px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  z-index: 999;
+}
+
+.floating-button:hover {
   background-color: #2c62e0;
 }
 

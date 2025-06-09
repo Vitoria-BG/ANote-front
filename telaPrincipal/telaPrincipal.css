@@ -236,6 +236,18 @@ button {
   color: #444;
 }
 
+.nomeAnotacao {
+  outline: none;
+  font-size: x-large;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  margin-bottom: 20px;
+  width: 100%;
+  color: #444;
+}
+
 /* configurações de design dos botões */
 .buttons2 {
   display: inline-block;
