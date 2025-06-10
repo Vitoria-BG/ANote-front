@@ -98,18 +98,40 @@
     <!-- Pop-up criar anotação -->
     <div class="form-containerA">
       <section class="form-box">
-
         <input type="text" class="nomeAnotacao" name="nomeAnotacao" placeholder="Nome da anotação" required />
+
+        <!-- botão para adicionar tag -->
+        <div class="tag-area">
+          <button type="button" class="add-tag-btn" id="openTagBox">+ Tag</button>
+
+          <!-- caixa para selecionar tag  -->
+          <div class="tag-box hidden" id="tagBox">
+            <p><strong>Criar tag</strong></p>
+            <ul id="existingTags">
+              <!-- lista de tags existentes -->
+            </ul>
+          </div>
+
+          <!-- caixa para criar nova tag -->
+          <div class="tag-creator hidden" id="tagCreator">
+            <p><strong>Nova tag</strong></p>
+            <input type="text" id="tagName" placeholder="Ex.: importante" />
             
-          <div class="buttons2">
-              <button type="submit" class="criar">Criar</button>
-          </div>
+            <div class="color-palette" id="colorPalette">
+              <!-- bolinhas de cores supostamente gerado pelo back -->
+            </div>
 
-          <div class="buttons2">
-              <button type="submit" class="cancelar">Cancelar</button>
+            <button type="button" id="saveTag" class="check-btn">✔</button>
           </div>
+        </div>
 
+        <!-- Botões -->
+        <div class="buttons2">
+          <button type="submit" class="criar">Criar</button>
+          <button type="button" class="cancelar" id="cancelNote">Cancelar</button>
+        </div>
       </section>
+
     </div>
     
   </div>
