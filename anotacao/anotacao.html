@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANote - Caderno</title>
+    <title>ANote - Anotação</title>
     <link rel="stylesheet" href="anotacao.css" />
 </head>
 <body>
@@ -73,21 +73,41 @@
         <h1>Nome da anotação</h1>
     </main>
 
+    <!-- Pop-up criar caderno -->
+    <div class="form-containerC">
+        <section class="form-box">
 
-    <div class="buttons">
-      <!-- Botão Menu -->
-      <button id="menu-toggle"> ☰ </button>
+            <input type="text" class="nomeCaderno" name="nomeCaderno" placeholder="Nome do caderno" required />
+            
+            <div class="buttons2">
+                <button type="submit" class="criar">Criar</button>
+            </div>
 
-      <!-- Menu abre e fecha -->
-      <div id="menutoggle" >
-          <ul>
-            <li><a href="#">Editar</a></li>
-            <li><a href="#">Excluir</a></li>
-          </ul>
-      </div>
+            <div class="buttons2">
+                <button type="submit" class="cancelar">Cancelar</button>
+            </div>
+
+        </section>
     </div>
 
+    <!-- Pop-up criar anotação -->
+    <div class="form-containerA">
+      <section class="form-box">
 
+        <input type="text" class="nomeAnotacao" name="nomeAnotacao" placeholder="Nome da anotação" required />
+            
+          <div class="buttons2">
+              <button type="submit" class="criar">Criar</button>
+          </div>
+
+          <div class="buttons2">
+              <button type="submit" class="cancelar">Cancelar</button>
+          </div>
+
+      </section>
+    </div>
+
+    <!-- ADICIONAR BOTÃO EDITAR, SALVAR, EXCLUIR-->
   </div>
 </body>
 </html>

@@ -142,63 +142,22 @@ footer {
   background-color: #c0392b;
 }
 
-/*
-.main-content {
-  
-}
-*/
-
 .main-content h1 {
     padding: 20px;
     margin: 10px 10px 10px 25px;
 } 
 
-/* MENU LATERAL DIREITA */
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* ícone do menu */
-.menu-toggle {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 30px;
-  margin-top: 16px;
-  margin-left: 60px;
-  margin-right: 24px;
-  background-color: white;
-}
-
-/* lista toggle */
-.menutoggle ul {
-  display: none;
-  list-style: none;
-  text-align: left;
-  right: 44px;
-  top: 76px;
-  position: absolute;
-}
-
-/* elementos da lista toggle */
-.menutoggle ul li {
-  border: 1px solid #979797;
-  padding: 10px 40px 10px 8px;
-  margin: 0;
-}
-
-/* configurações de design do link na lista toggle */
-.menutoggle a {
-  text-decoration: none; 
-  color: black; 
-}
-
 /* POP-UP CRIAR CADERNO */
-.form-container { 
+.form-containerA { 
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  padding: 20px;
+}
+
+/* POP-UP CRIAR ANOTAÇÃO */
+.form-containerC {
   display: none;
   position: absolute;
   top: 30%;
@@ -228,6 +187,7 @@ button {
   color: #444;
 }
 
+/* configurações de design do pop-up */
 .nomeAnotacao {
   outline: none;
   font-size: x-large;
@@ -238,6 +198,14 @@ button {
   margin-bottom: 20px;
   width: 100%;
   color: #444;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* configurações de design dos botões */
