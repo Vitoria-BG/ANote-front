@@ -19,7 +19,6 @@ body {
 /* SEPARAÇÃO LATERAL ESQUERDA */
 .sidebar {
   width: 250px;
-  background-color: #f1f1f1;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -127,10 +126,12 @@ footer {
 
 /* configurações de design */
 .logout-btn {
-  background-color: #e74c3c;
-  color: white;
+  position: absolute;
+  top: 24px;
+  left: 162px;
+  color: #444;
   border: none;
-  padding: 10px 16px;
+  padding: 8px 12px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
@@ -139,7 +140,7 @@ footer {
 
 /* configurações de design */
 .logout-btn:hover {
-  background-color: #c0392b;
+  color: #e74c3c;
 }
 
 /* LOGO NO CENTRO */
@@ -163,50 +164,17 @@ footer {
   color: #467dff;
 }
 
-/* MENU LATERAL DIREITA */
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* ícone do menu */
-.menu-toggle {
-  align-self: baseline;
-  font-size: 30px;
-  margin-top: 16px;
-  margin-left: 60px;
-  margin-right: 24px;
-  background-color: white;
-}
-
-/* lista toggle */
-.menutoggle ul {
-  display: none;
-  list-style: none;
-  text-align: left;
-  right: 44px;
-  position: absolute;
-}
-
-/* elementos da lista toggle */
-.menutoggle ul li {
-  border: 1px solid #979797;
-  padding: 10px 40px 10px 8px;
-  margin: 0;
-
-}
-
-/* configurações de design do link na lista toggle */
-.menutoggle a {
-  text-decoration: none; 
-  color: black; 
-}
-
 /* POP-UP CRIAR CADERNO */
-.form-container { 
+.form-containerC { 
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  padding: 20px;
+}
+
+/* POP-UP CRIAR ANOTAÇÃO */
+.form-containerA { 
   display: none;
   position: absolute;
   top: 30%;

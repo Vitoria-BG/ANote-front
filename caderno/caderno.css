@@ -19,7 +19,6 @@ body {
 /* SEPARAÇÃO LATERAL ESQUERDA */
 .sidebar {
   width: 250px;
-  background-color: #f1f1f1;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -127,10 +126,12 @@ footer {
 
 /* configurações de design */
 .logout-btn {
-  background-color: #e74c3c;
-  color: white;
+  position: absolute;
+  top: 24px;
+  left: 162px;
+  color: #444;
   border: none;
-  padding: 10px 16px;
+  padding: 8px 12px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
@@ -139,7 +140,7 @@ footer {
 
 /* configurações de design */
 .logout-btn:hover {
-  background-color: #c0392b;
+  color: #e74c3c;
 }
 
 .main-content h1 {
@@ -230,7 +231,7 @@ button {
 }
 
 /* configurações de design dos botões */
-.criar:hover, .cancelar:hover {
+.criar:hover, .cancelar:hover, .salvar:hover {
   background-color: #2c62e0;
 }
 
@@ -241,7 +242,7 @@ button {
   right: 30px;
   width: 60px;
   height: 60px;
-  background-color: #467dff;
+  background-color: #ee840c;
   color: white;
   font-size: 36px;
   border: none;
@@ -253,6 +254,117 @@ button {
 }
 
 .floating-button:hover {
+  background-color: #d3760c;
+}
+
+/* POP-UP EDITAR CADERNO */
+.form-containerC {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  padding: 20px;
+}
+
+/* botão salvar edições */
+.salvar {
+  margin: 8px;
+  margin-left: 410px;
+  background-color:  #467dff;
+  color: white;
+}
+
+/* BOTÃO EDITAR */
+.buttonEditar {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  margin: 8px;
+  margin-left: 8px;
+  background-color: #467dff;
+  color: white;
+}
+
+.buttonEditar:hover {
   background-color: #2c62e0;
 }
 
+/* Botão +Tag */
+.add-tag-btn {
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* Caixa de seleção de tags existentes */
+.tag-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  width: 200px;
+  background-color: #fff;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Lista de tags existentes */
+#existingTags li {
+  list-style: none;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+/* Caixa de criação de nova tag */
+.tag-creator {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  width: 200px;
+  background-color: #fff;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#tagName {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  margin-top: 5px;
+}
+
+/* paleta de cores */
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #aaa;
+}
+
+.color-circle.selected {
+  outline: 2px solid black;
+}
+
+/* botão check para salvar nova tag */
+.check-btn {
+  background-color: #f4c542;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+ 

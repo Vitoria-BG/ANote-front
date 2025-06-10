@@ -19,7 +19,6 @@ body {
 /* SEPARAÇÃO LATERAL ESQUERDA */
 .sidebar {
   width: 250px;
-  background-color: #f1f1f1;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -127,10 +126,12 @@ footer {
 
 /* configurações de design */
 .logout-btn {
-  background-color: #e74c3c;
-  color: white;
+  position: absolute;
+  top: 24px;
+  left: 162px;
+  color: #444;
   border: none;
-  padding: 10px 16px;
+  padding: 8px 12px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
@@ -139,7 +140,7 @@ footer {
 
 /* configurações de design */
 .logout-btn:hover {
-  background-color: #c0392b;
+  color: #e74c3c;
 }
 
 .main-content h1 {
@@ -232,4 +233,36 @@ button {
 /* configurações de design dos botões */
 .criar:hover, .cancelar:hover {
   background-color: #2c62e0;
+}
+
+/* BOTÃO EDITAR E SALVAR */
+.buttonEditar {
+  position: absolute;
+  top: 28px;
+  right: 125px;
+  margin: 8px;
+  margin-left: 8px;
+  background-color: #467dff;
+  color: white;
+}
+
+.buttonSalvar {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  margin: 8px;
+  margin-left: 8px;
+  background-color: #467dff;
+  color: white;
+}
+
+.buttonEditar:hover, .buttonSalvar:hover {
+  background-color: #2c62e0;
+}
+
+.textoAnotacoes {
+  position: absolute;
+  top: 120px;
+  left: 295px;
+  right: 55px;
 }
