@@ -1,136 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANote - Página Inicial</title>
-  <link rel="stylesheet" href="telaPrincipal.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANote - Página Inicial</title>
+    <link rel="stylesheet" href="telaPrincipal.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Barra lateral -->
+      <aside class="sidebar">
+        <div class="user-info">
+          <span id="username">Olá, Usuário!</span>
+        </div>
 
-  <div class="container">
+        <form>
+          <!-- Aba de busca -->
+          <input type="search" placeholder="Buscar" class="search" />
+        </form>
 
-    <!-- Barra lateral -->
-    <aside class="sidebar">
-      <div class="user-info">
-        <span id="username">Olá, Usuário!</span>
-      </div>
+        <!-- Lista de atividades lateral -->
+        <div class="menu">
+          <!-- Anotações -->
+          <div class="section">
+            <span class="title">> Anotações</span>
+            <!-- Menu abre e fecha -->
+            <div class="submenu hidden">
+              <button class="action">+ Criar anotação</button>
+              <!-- Lista das anotações -->
+              <ul class="incompleto">
+                <!-- ANOTAÇÕES INICIAIS DEVEM APARECER AQUI -->
+                <span class="completo">
+                  <ul>
+                    <!-- RESTO DAS ANOTAÇÕES DEVEM APARECER AQUI -->
+                  </ul>
+                </span>
+              </ul>
+              <button class="vermais">Ver mais...</button>
+            </div>
+          </div>
 
-      <form>
-        <!-- Aba de busca -->
-        <input type="search" placeholder="Buscar" class="search" />
-      </form>
-      
-      <!-- Lista de atividades lateral -->
-      <div class="menu">
-
-        <!-- Anotações -->
-        <div class="section">
-          <span class="title">> Anotações</span>
-          <!-- Menu abre e fecha -->
-          <div class="submenu hidden">
-            <button class="action">+ Criar anotação</button>
-            <!-- Lista das anotações -->
-            <ul class="incompleto">
-              <!-- ANOTAÇÕES INICIAIS DEVEM APARECER AQUI -->
-              <span class="completo">
-                <ul> 
-                  <!-- RESTO DAS ANOTAÇÕES DEVEM APARECER AQUI -->
-                </ul>
-              </span>
-            </ul>
-            <button class="vermais">Ver mais...</button>
+          <!-- Cadernos -->
+          <div class="section">
+            <span class="title">> Cadernos</span>
+            <!-- Menu abre e fecha -->
+            <div class="submenu hidden">
+              <button class="action">+ Criar caderno</button>
+              <!-- Lista dos cadernos -->
+              <ul class="incompleto">
+                <!-- CADERNOS INICIAIS DEVEM APARECER AQUI -->
+                <span class="completo">
+                  <ul>
+                    <!-- RESTO DOS CADERNOS DEVE APARECER AQUI -->
+                  </ul>
+                </span>
+              </ul>
+              <button class="vermais">Ver mais...</button>
+            </div>
           </div>
         </div>
 
-        <!-- Cadernos -->
-        <div class="section">
-          <span class="title">> Cadernos</span>
-          <!-- Menu abre e fecha -->
-          <div class="submenu hidden">
-            <button class="action">+ Criar caderno</button>
-            <!-- Lista dos cadernos -->
-            <ul class="incompleto">
-              <!-- CADERNOS INICIAIS DEVEM APARECER AQUI -->
-              <span class="completo">
-                <ul> 
-                  <!-- RESTO DOS CADERNOS DEVE APARECER AQUI -->
-                </ul>
-              </span>
-            </ul>
-            <button class="vermais">Ver mais...</button>
+        <!-- Sair da conta -->
+        <footer>
+          <button class="logout-btn" onclick="logout()">Sair</button>
+        </footer>
+      </aside>
+
+      <!-- Parte principal -->
+      <main class="main-content">
+        <h1 class="logo">ANote<span class="plus">+</span></h1>
+      </main>
+
+      <!-- Pop-up criar caderno -->
+      <div class="form-containerC">
+        <section class="form-box">
+          <input
+            type="text"
+            class="nomeCaderno"
+            name="nomeCaderno"
+            placeholder="Nome do caderno"
+            required
+          />
+
+          <div class="buttons2">
+            <button type="submit" class="criar">Criar</button>
           </div>
-        </div>
-        
+
+          <div class="buttons2">
+            <button type="submit" class="cancelar">Cancelar</button>
+          </div>
+        </section>
       </div>
 
-      <!-- Sair da conta -->
-      <footer>
-        <button class="logout-btn" onclick="logout()">Sair</button>
-      </footer>
-    </aside>
+      <!-- Pop-up criar anotação -->
+      <div class="form-containerA">
+        <section class="form-box">
+          <input
+            type="text"
+            class="nomeAnotacao"
+            name="nomeAnotacao"
+            placeholder="Nome da anotação"
+            required
+          />
 
-    <!-- Parte principal -->
-    <main class="main-content">
-      <h1 class="logo">ANote<span class="plus">+</span></h1>
-    </main>
+          <!-- botão para adicionar tag -->
+          <div class="tag-area">
+            <button type="button" class="add-tag-btn" id="openTagBox">
+              + Tag
+            </button>
 
-    <!-- Pop-up criar caderno -->
-    <div class="form-containerC">
-      <section class="form-box">
-
-        <input type="text" class="nomeCaderno" name="nomeCaderno" placeholder="Nome do caderno" required />
-            
-          <div class="buttons2">
-              <button type="submit" class="criar">Criar</button>
-          </div>
-
-          <div class="buttons2">
-              <button type="submit" class="cancelar">Cancelar</button>
-          </div>
-
-      </section>
-    </div>
-
-    <!-- Pop-up criar anotação -->
-    <div class="form-containerA">
-      <section class="form-box">
-        <input type="text" class="nomeAnotacao" name="nomeAnotacao" placeholder="Nome da anotação" required />
-
-        <!-- botão para adicionar tag -->
-        <div class="tag-area">
-          <button type="button" class="add-tag-btn" id="openTagBox">+ Tag</button>
-
-          <!-- caixa para selecionar tag  -->
-          <div class="tag-box hidden" id="tagBox">
-            <p><strong>Criar tag</strong></p>
-            <ul id="existingTags">
-              <!-- lista de tags existentes -->
-            </ul>
-          </div>
-
-          <!-- caixa para criar nova tag -->
-          <div class="tag-creator hidden" id="tagCreator">
-            <p><strong>Nova tag</strong></p>
-            <input type="text" id="tagName" placeholder="Ex.: importante" />
-            
-            <div class="color-palette" id="colorPalette">
-              <!-- bolinhas de cores supostamente gerado pelo back -->
+            <!-- caixa para selecionar tag  -->
+            <div class="tag-box hidden" id="tagBox">
+              <p><strong>Criar tag</strong></p>
+              <ul id="existingTags">
+                <!-- lista de tags existentes -->
+              </ul>
             </div>
 
-            <button type="button" id="saveTag" class="check-btn">✔</button>
+            <!-- caixa para criar nova tag -->
+            <div class="tag-creator hidden" id="tagCreator">
+              <p><strong>Nova tag</strong></p>
+              <input type="text" id="tagName" placeholder="Ex.: importante" />
+
+              <div class="color-palette" id="colorPalette">
+                <!-- bolinhas de cores supostamente gerado pelo back -->
+              </div>
+
+              <button type="button" id="saveTag" class="check-btn">✔</button>
+            </div>
           </div>
-        </div>
 
-        <!-- Botões -->
-        <div class="buttons2">
-          <button type="submit" class="criar">Criar</button>
-          <button type="button" class="cancelar" id="cancelNote">Cancelar</button>
-        </div>
-      </section>
-
+          <!-- Botões -->
+          <div class="buttons2">
+            <button type="submit" class="criar">Criar</button>
+            <button type="button" class="cancelar" id="cancelNote">
+              Cancelar
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
-
-  </div>
-</body>
+  </body>
 </html>
