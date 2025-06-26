@@ -382,11 +382,16 @@ button {
   color: white;
 }
 
+.buttonEditarCaderno:hover,
 .buttonEditarAnotacao:hover,
 .buttonSalvarAnotacao:hover {
   background-color: #2c62e0;
 }
 
+.buttonEditarAnotacao,
+.buttonSalvarAnotacao {
+  padding-left: -500px;
+}
 .buttonExcluirCaderno {
   color: rgb(0, 0, 0);
 }
@@ -406,10 +411,6 @@ button {
   background-color: #eb0606;
 }
 
-.buttonEditarCaderno:hover,
-.buttonSalvarCaderno:hover {
-  background-color: aqua;
-}
 .textoAnotacoes {
   width: 100%;
   min-height: 300px;
@@ -469,4 +470,8 @@ button {
 
 #existingTagsCaderno .tag:hover {
   filter: brightness(1.2);
+}
+
+.toggleAnotacao {
+  margin-top: 18px;
 }

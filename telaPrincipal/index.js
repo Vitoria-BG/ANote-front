@@ -47,7 +47,7 @@ function mapearCor(nome) {
     PRETO: "#343a40",
     BRANCO: "#ffffff",
   };
-  return cores[nome?.toUpperCase()] || "#999";
+  return cores[nome?.toUpperCase()] || "#000";
 }
 
 function criarPaletaDeCores() {
@@ -143,18 +143,18 @@ function renderizarCadernos(cadernos) {
             <div class="caderno-item listaAnotacao" onclick="toggleAnotacoesCaderno(${index})" style="color: ${mapearCor(
       caderno.tags && caderno.tags[0]?.cor
     )}">
-              > ${caderno.titulo}
+             "    ${caderno.titulo}
             </div>
             <button id="criarAnotacoes-caderno-${index}" class="action buttonSalvarCaderno toggleAnotacao hidden">
                 + Criar anotação
             </button>
             <ul id="anotacoes-caderno-${index}" class="anotacoes-caderno hidden"></ul>
             
-            <button id="editarAnotacoes-caderno-${index}" class="action toggleAnotacao buttonEditarCaderno hidden">
-                editar =D
+            <button id="editarAnotacoes-caderno-${index}" class="toggleAnotacao buttonEditarCaderno hidden">
+                Editar
             </button>
-            <button id="excluirAnotacoes-caderno-${index}" class="action toggleAnotacao buttonExcluirCaderno hidden">
-                excluir ;-;
+            <button id="excluirAnotacoes-caderno-${index}" class=" toggleAnotacao buttonExcluirCaderno hidden">
+                Excluir
             </button>
           `;
     lista.appendChild(li);
@@ -495,8 +495,8 @@ async function salvarAnotacao(caderno, anotacao, nomeAnotacao) {
   let texto = document.getElementById("corpoAnotacao").value;
   let cadernoId = null;
   const userID = usuario.id;
-  if (nomeAnotacao == null) {
-    nomeAnotacao = caderno.titulo;
+  if (nomeAnotacao == null || nomeAnotacao == "") {
+    nomeAnotacao = anotacao.titulo;
   }
   if (caderno != null) {
     cadernoId = caderno.id;
