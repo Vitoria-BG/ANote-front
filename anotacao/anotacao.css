@@ -144,12 +144,12 @@ footer {
 }
 
 .main-content h1 {
-    padding: 20px;
-    margin: 10px 10px 10px 25px;
-} 
+  padding: 20px;
+  margin: 10px 10px 10px 25px;
+}
 
 /* POP-UP CRIAR CADERNO */
-.form-containerA { 
+.form-containerA {
   display: none;
   position: absolute;
   top: 30%;
@@ -219,19 +219,20 @@ button {
 .criar {
   margin: 8px;
   margin-left: 410px;
-  background-color:  #467dff;
+  background-color: #467dff;
   color: white;
 }
 
 /* configurações de design do botão criar */
 .cancelar {
   margin: 8px;
-  background-color:  #467dff;
+  background-color: #467dff;
   color: white;
 }
 
 /* configurações de design dos botões */
-.criar:hover, .cancelar:hover {
+.criar:hover,
+.cancelar:hover {
   background-color: #2c62e0;
 }
 
@@ -256,7 +257,8 @@ button {
   color: white;
 }
 
-.buttonEditar:hover, .buttonSalvar:hover {
+.buttonEditar:hover,
+.buttonSalvar:hover {
   background-color: #2c62e0;
 }
 

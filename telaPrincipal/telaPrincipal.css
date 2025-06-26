@@ -11,6 +11,14 @@ body {
   background-color: #ffffff;
 }
 
+.main-contentAnotacao {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
 .container {
   display: flex;
   width: 100%;
@@ -78,7 +86,7 @@ body {
 .action {
   background: none;
   border: none;
-  color: #444;
+  color: #467dff;
   margin: 5px 0;
   cursor: pointer;
   text-align: left;
@@ -149,8 +157,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 }
-
+.main-contentAnotacao h1 {
+  padding: 20px;
+  margin: 10px 10px 10px 25px;
+}
 /* design e posição da logo */
 .logo {
   text-align: center;
@@ -165,8 +177,7 @@ footer {
 }
 
 /* POP-UP CRIAR CADERNO */
-.form-containerC { 
-  display: none;
+.form-containerC {
   position: absolute;
   top: 30%;
   left: 38%;
@@ -174,8 +185,7 @@ footer {
 }
 
 /* POP-UP CRIAR ANOTAÇÃO */
-.form-containerA { 
-  display: none;
+.form-containerA {
   position: absolute;
   top: 30%;
   left: 38%;
@@ -226,19 +236,20 @@ footer {
 .criar {
   margin: 8px;
   margin-left: 410px;
-  background-color:  #467dff;
+  background-color: #467dff;
   color: white;
 }
 
 /* configurações de design do botão criar */
 .cancelar {
   margin: 8px;
-  background-color:  #467dff;
+  background-color: #467dff;
   color: white;
 }
 
 /* configurações de design dos botões */
-.criar:hover, .cancelar:hover {
+.criar:hover,
+.cancelar:hover {
   background-color: #2c62e0;
 }
 
@@ -266,7 +277,7 @@ footer {
 /* Lista de tags existentes */
 #existingTags li {
   list-style: none;
-  margin: 5px 0;
+  margin: 20px;
   cursor: pointer;
 }
 
@@ -293,10 +304,26 @@ footer {
 .color-palette {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin-top: 10px;
 }
 
+.cor-opcao {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cor-opcao:hover {
+  transform: scale(1.1);
+}
+
+.cor-opcao.selecionada {
+  border: 3px solid #000;
+}
 .color-circle {
   width: 20px;
   height: 20px;
@@ -319,4 +346,93 @@ footer {
   cursor: pointer;
   margin-top: 10px;
   color: white;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* BOTÃO EDITAR */
+.buttonEditarAnotacao {
+  position: absolute;
+  top: 28px;
+  right: 125px;
+  margin: 8px;
+  margin-left: 8px;
+  background-color: #467dff;
+  color: white;
+}
+
+.listaAnotacao {
+  margin-top: 10px;
+  margin-left: -20px;
+}
+
+.buttonSalvarAnotacao {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  margin: 8px;
+  margin-left: 8px;
+  background-color: #467dff;
+  color: white;
+}
+
+.buttonEditarAnotacao:hover,
+.buttonSalvarAnotacao:hover {
+  background-color: #2c62e0;
+}
+
+.buttonExcluirCaderno {
+  color: rgb(0, 0, 0);
+}
+
+.buttonExcluirAnotacao {
+  position: absolute;
+  top: 28px;
+  right: 215px;
+  margin: 8px;
+  margin-left: 8px;
+  background-color: #8c8c8c;
+  color: white;
+}
+
+.buttonExcluirAnotacao:hover,
+.buttonExcluirCaderno:hover {
+  background-color: #eb0606;
+}
+
+.buttonEditarCaderno:hover,
+.buttonSalvarCaderno:hover {
+  background-color: aqua;
+}
+.textoAnotacoes {
+  width: 100%;
+  min-height: 300px;
+  margin: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 20px;
+}
+
+.tag {
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
