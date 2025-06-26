@@ -436,3 +436,37 @@ button {
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* Estilo padrão para todas as listas de tags */
+.tag-box ul,
+#existingTagsCaderno {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo para cada tag (li) */
+.tag-box ul li,
+#existingTagsCaderno li {
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Estilo visual para os botões de tag */
+.tag-box .tag,
+#existingTagsCaderno .tag {
+  display: inline-block;
+  background-color: #ccc;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+#existingTagsCaderno .tag:hover {
+  filter: brightness(1.2);
+}

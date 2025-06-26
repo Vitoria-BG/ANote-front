@@ -71,6 +71,19 @@ function criarPaletaDeCores() {
 
     container.appendChild(bolinha);
   });
+
+  document.getElementById("saveTag").addEventListener("click", () => {
+    const nome = document.getElementById("tagName").value.trim();
+    const selecionada = document.querySelector(".cor-opcao.selecionada");
+
+    if (!nome || !selecionada) {
+      alert("Preencha o nome e escolha uma cor.");
+      return;
+    }
+
+    const cor = selecionada.title;
+    criarTag(nome, cor);
+  });
 }
 function aplicarCorDaTag(anotacao, elementoDiv) {
   if (anotacao.tags && anotacao.tags.length > 0) {
@@ -127,7 +140,9 @@ function renderizarCadernos(cadernos) {
   cadernos.forEach((caderno, index) => {
     const li = document.createElement("li");
     li.innerHTML = `
-            <div class="caderno-item listaAnotacao" onclick="toggleAnotacoesCaderno(${index})">
+            <div class="caderno-item listaAnotacao" onclick="toggleAnotacoesCaderno(${index})" style="color: ${mapearCor(
+      caderno.tags && caderno.tags[0]?.cor
+    )}">
               > ${caderno.titulo}
             </div>
             <button id="criarAnotacoes-caderno-${index}" class="action buttonSalvarCaderno toggleAnotacao hidden">
@@ -225,9 +240,11 @@ function abrirAnotacao(caderno, anotacao) {
         ? caderno.tags
             .map(
               (tag) =>
-                `<span class="tag" style="background-color: ${mapearCor(
-                  tag.cor
-                )}">${tag.nome}</span>`
+                `<span class="tag" data-tag-id="${
+                  tag.id
+                }" style="background-color: ${mapearCor(tag.cor)}">${
+                  tag.nome
+                }</span>`
             )
             .join("")
         : `<span></span>`
@@ -235,9 +252,11 @@ function abrirAnotacao(caderno, anotacao) {
       ${anotacao.tags
         .map(
           (tag) =>
-            `<span class="tag" style="background-color: ${mapearCor(
-              tag.cor
-            )}">${tag.nome}</span>`
+            `<span class="tag" data-tag-id-anotacao="${
+              tag.id
+            }" style="background-color: ${mapearCor(tag.cor)}">${
+              tag.nome
+            }</span>`
         )
         .join("")}
   </div>
@@ -259,6 +278,25 @@ function abrirAnotacao(caderno, anotacao) {
 
   document.getElementById("btnExcluir").addEventListener("click", () => {
     excluirAnotacao(anotacao);
+  });
+
+  if (caderno != null) {
+    document.querySelectorAll(".tag[data-tag-id]").forEach((tag) => {
+      tag.addEventListener("click", () => {
+        console.log(tag.dataset);
+        const confirmar = confirm("Remover esta tag do caderno?");
+        if (!confirmar) return;
+        excluirTagCaderno(caderno, tag);
+      });
+    });
+  }
+  document.querySelectorAll(".tag[data-tag-id-anotacao]").forEach((tag) => {
+    tag.addEventListener("click", () => {
+      console.log(tag.dataset);
+      const confirmar = confirm("Remover esta tag da anotação?");
+      if (!confirmar) return;
+      excluirTagAnotacao(anotacao, tag);
+    });
   });
 }
 function logout() {
@@ -284,6 +322,46 @@ function criarCaderno() {
     container.display = "flex";
   } else {
     container.display = "none";
+  }
+}
+
+async function excluirTagAnotacao(anotacao, tag) {
+  try {
+    const response = await fetch(
+      "http://localhost:8080/anotacoes/" +
+        anotacao.id +
+        "/tags/" +
+        tag.dataset.tagIdAnotacao,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    window.location.href = "../telaPrincipal/telaPrincipal.html";
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+async function excluirTagCaderno(caderno, tag) {
+  try {
+    const response = await fetch(
+      "http://localhost:8080/cadernos/" +
+        caderno.id +
+        "/tags/" +
+        tag.dataset.tagId,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    window.location.href = "../telaPrincipal/telaPrincipal.html";
+  } catch (err) {
+    alert(err.message);
   }
 }
 
@@ -461,10 +539,22 @@ function editarCaderno(caderno, anotacao) {
   document.getElementById("btnEditarCaderno").addEventListener("click", () => {
     salvarEdicaoCaderno(caderno, anotacao);
   });
+  document.getElementById("openTagBoxCaderno").addEventListener("click", () => {
+    document.getElementById("tagBoxCaderno").classList.toggle("hidden");
+    salvarEdicaoCadernoTag(caderno);
+  });
+
+  document.getElementById("tagBoxCaderno").addEventListener("dblclick", () => {
+    document.getElementById("tagCreatorCaderno").classList.toggle("hidden");
+    criarPaletaDeCoresCaderno();
+  });
 }
 async function salvarCaderno(caderno, nomeCaderno) {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
   const userID = usuario.id;
+  if (nomeCaderno == null || nomeCaderno == "") {
+    nomeCaderno = caderno.titulo;
+  }
   try {
     const response = await fetch(
       "http://localhost:8080/cadernos/" + caderno.id,
@@ -505,8 +595,97 @@ function toggleCriarTag() {
   document.getElementById("tagCreator").classList.toggle("hidden");
   criarPaletaDeCores();
 }
+function toggleCriarTagCaderno() {
+  document.getElementById("tagCreatorCaderno").classList.toggle("hidden");
+  criarPaletaDeCoresCaderno();
+}
 function toggleCaderno() {
   document.getElementById("criarCaderno").classList.toggle("hidden");
+}
+async function salvarEdicaoCadernoTag(caderno) {
+  const tags = await getTags();
+  const container = document.getElementById("existingTagsCaderno");
+  container.innerHTML = "";
+  let tagsSelecionadas = [];
+
+  tags.forEach((tag) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span id="caderno-tag-${
+      tag.id
+    }" class="tag" style="background-color: ${mapearCor(tag.cor)}">${
+      tag.nome
+    }</span>`;
+    container.appendChild(li);
+
+    const tagElement = document.getElementById(`caderno-tag-${tag.id}`);
+    tagElement.addEventListener("click", () => {
+      const index = tagsSelecionadas.indexOf(tag);
+      if (index === -1) {
+        tagElement.style.filter = `brightness(0.6)`;
+        tagsSelecionadas.push(tag);
+      } else {
+        tagElement.style.filter = `brightness(1)`;
+        tagsSelecionadas = tagsSelecionadas.filter((t) => t.id !== tag.id);
+      }
+    });
+  });
+
+  const btn = document.createElement("button");
+  btn.textContent = "Adicionar ao Caderno";
+  btn.classList.add("buttonEditarCaderno");
+  btn.addEventListener("click", () => {
+    tagsSelecionadas.forEach((tag) => salvarTagNoCaderno(caderno, tag));
+  });
+  container.appendChild(btn);
+}
+async function salvarTagNoCaderno(caderno, tag) {
+  try {
+    const response = await fetch(
+      `http://localhost:8080/cadernos/${caderno.id}/tags/${tag.id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (!response.ok) throw new Error(`Erro ao salvar tag no caderno`);
+    window.location.href = "../telaPrincipal/telaPrincipal.html";
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+function criarPaletaDeCoresCaderno() {
+  const container = document.getElementById("colorPaletteCaderno");
+  container.innerHTML = "";
+  Object.entries(coresTag).forEach(([nome, cor]) => {
+    const circle = document.createElement("div");
+    circle.classList.add("cor-opcao");
+    circle.style.backgroundColor = cor;
+    circle.title = nome;
+
+    circle.addEventListener("click", () => {
+      document
+        .querySelectorAll(".cor-opcao")
+        .forEach((el) => el.classList.remove("selecionada"));
+      circle.classList.add("selecionada");
+    });
+
+    container.appendChild(circle);
+  });
+
+  document
+    .getElementById("saveTagCaderno")
+    .addEventListener("click", async () => {
+      const nome = document.getElementById("tagNameCaderno").value;
+      const selecionada = document.querySelector(
+        "#colorPaletteCaderno .selecionada"
+      );
+      if (!nome || !selecionada) return alert("Preencha todos os campos");
+
+      await criarTag(nome, selecionada.title);
+    });
 }
 async function criarAnotacao(caderno) {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
@@ -555,6 +734,30 @@ async function criarCaderno() {
       body: JSON.stringify({
         titulo: title,
         usuarioId: userID,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    window.location.href = "../telaPrincipal/telaPrincipal.html";
+    return data;
+  } catch (err) {
+    alert(err.message);
+  }
+}
+async function criarTag(nome, cor) {
+  try {
+    const response = await fetch("http://localhost:8080/tags", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nome: nome,
+        cor: cor,
       }),
     });
     if (!response.ok) {

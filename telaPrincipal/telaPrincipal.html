@@ -117,6 +117,31 @@
             required
           />
 
+          <div class="tag-area">
+            <button type="button" class="add-tag-btn" id="openTagBoxCaderno">
+              + Tag
+            </button>
+
+            <div class="tag-box hidden" id="tagBoxCaderno">
+              <p>
+                <strong onclick="toggleCriarTagCaderno()">+ Criar tag</strong>
+              </p>
+              <ul id="existingTagsCaderno"></ul>
+            </div>
+
+            <div class="tag-creator hidden" id="tagCreatorCaderno">
+              <p><strong>Nova tag</strong></p>
+              <input
+                type="text"
+                id="tagNameCaderno"
+                placeholder="Ex.: importante"
+              />
+              <div class="color-palette" id="colorPaletteCaderno"></div>
+              <button type="button" id="saveTagCaderno" class="check-btn">
+                ✔
+              </button>
+            </div>
+          </div>
           <div class="buttons2">
             <button type="submit" id="btnEditarCaderno" class="criar">
               Salvar
@@ -124,7 +149,11 @@
           </div>
 
           <div class="buttons2">
-            <button type="submit" class="cancelar" onclick="toggleCaderno()">
+            <button
+              type="submit"
+              class="cancelar"
+              onclick="noHiddenEditarCaderno()"
+            >
               Cancelar
             </button>
           </div>
